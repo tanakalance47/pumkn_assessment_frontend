@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import SideDrawer from './components/menu/MyDrawer';
+import { Routes, Route } from "react-router-dom";
+import Beers from './components/pages/Beers';
+import Random from './components/pages/Random';
+import Search from './components/pages/Search';
+import BeerDetails from './components/pages/Beer_Detail';
+import SearchResults from './components/pages/Search_Results';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SideDrawer />
+        <Routes>
+          <Route path="/" element={<Beers />} />
+          <Route path="/random" element={<Random />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/beer_details" element={<BeerDetails />} />
+          <Route path="/search_results/:searchText" element={<SearchResults />} />
+        </Routes>
     </div>
   );
 }
