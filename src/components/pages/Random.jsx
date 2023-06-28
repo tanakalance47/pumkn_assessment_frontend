@@ -45,13 +45,13 @@ const Random = () => {
 
     return (
         <div style={{ margin: 80 }}>
-            <h1> Random Beer</h1>
+            <h1>Random Beer</h1>
 
             {beer ? (
                 <div>
                     <img src={image_url} alt="Beer" style={{ height: 300, width: 300 }} />
 
-                    <h3>General</h3>
+                    <h2>General</h2>
 
                     <p>Name: {name}</p>
                     <p>Description: {description}</p>
@@ -60,7 +60,7 @@ const Random = () => {
                     <p>Brewers Tips: {brewers_tips}</p>
                     <p>Contributed by: {contributed_by}</p>
 
-                    <h3>Specifics</h3>
+                    <h2>Specifics</h2>
 
                     <p>ABV: {abv}</p>
                     <p>IBU:  {ibu}</p>
@@ -71,7 +71,41 @@ const Random = () => {
                     <p>PH: {ph}</p>
                     <p>Attenuation level: {attenuation_level}</p>
 
-                    <h3>Food Pairing</h3>
+                    <h2>Measurements</h2>
+
+                    <h3>Volume</h3>
+                    <p>{volume?.value} {volume?.unit}</p>
+
+                    <h3>Boil Volume</h3>
+                    <p>{boil_volume?.value} {boil_volume?.unit}</p>
+
+                    <h3>Method</h3>
+
+                    <p>Twist: {method?.twist}</p>
+
+                    <h4>Fermentation</h4>
+                    <p>{method?.fermentation?.temp?.value} {method?.fermentation?.temp?.unit}</p>
+
+                    <h4>Mash Temp</h4>
+                    {method?.mash_temp ? (method?.mash_temp.map((item) => (
+                        <p>Measurement: {item.temp.value} {item.temp.unit} Duration: {item.duration}</p>
+                    ))) : <CircularProgress />}
+
+                    <h3>Ingredients</h3>
+
+                    <p>Yeast: {ingredients?.yeast}</p>
+
+                    <h4>Malt</h4>
+                    {ingredients?.malt ? (ingredients?.malt.map((item) => (
+                        <p>Name: {item.name}, Amount: {item.amount.value} {item.amount.unit}</p>
+                    ))) : <CircularProgress />}
+
+                    <h4>Hops</h4>
+                    {ingredients?.hops ? (ingredients?.hops.map((item) => (
+                        <p>Name: {item.name}, Amount: {item.amount.value} {item.amount.unit}, Add: {item.add}, Attribute: {item.attribute}</p>
+                    ))) : <CircularProgress />}
+
+                    <h2>Food Pairing</h2>
                     {food_pairing ? (food_pairing.map((item) => (
                         <p>{item}</p>
                     ))) : <CircularProgress />}

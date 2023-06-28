@@ -5,11 +5,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from "react-router-dom"
+
 
 const Beer_item = (props) => {
 
     const { beer } = props;
     const { id, description, name, image_url } = beer;
+    const navigate = useNavigate();
 
     return (
         <Card sx={{ maxWidth: 350 }}>
@@ -28,7 +31,7 @@ const Beer_item = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">View</Button>
+            <Button color="primary" onClick={ id ? (() => navigate(`/beer_details/${id}`)) : <div> </div>}>View Beer</Button>
             </CardActions>
         </Card>
     );

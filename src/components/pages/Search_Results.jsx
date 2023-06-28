@@ -59,7 +59,7 @@ const Search_Results = () => {
                 setResults(responseBeers.data);
             })
             .catch((error) => {
-                console.error('Error fetching beers:', error);
+                console.error('Error fetching search results:', error);
             });
     }, [searchText]);
 
