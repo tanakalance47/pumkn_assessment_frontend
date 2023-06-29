@@ -17,13 +17,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
 import ShuffleIcon from '@mui/icons-material/Shuffle';
 import SearchIcon from '@mui/icons-material/Search';
-import Beers from '../pages/Beers';
-import Random from '../pages/Random';
 import {useNavigate} from "react-router-dom"
 
 const drawerWidth = 240;
@@ -96,33 +92,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function MyDrawer() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const [menudata, setMenudata] = useState("Beers");
   const navigate = useNavigate();
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
 
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-    const itemsList = [
-    {
-        text: 'Beers',
-        icon: <SportsBarIcon  />,
-        path: "/"
-    },
-    {
-        text: 'Random',
-        icon: <ShuffleIcon />,
-        path: "/"
-    },
-    {
-        text: 'Search',
-        icon: <SearchIcon />,
-        path: "/"
-    }];
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -214,8 +188,7 @@ export default function MyDrawer() {
                 </ListItemIcon>
                 <ListItemText primary='Search' sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
-            </ListItem>
-          
+            </ListItem>      
         </List>
       </Drawer>
     </Box>

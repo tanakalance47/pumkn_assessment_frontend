@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
 import { useParams } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import { DataGrid } from '@mui/x-data-grid';
@@ -77,8 +76,7 @@ const Search_Results = () => {
                                 paginationModel: { page: 0, pageSize: 5 },
                             },
                         }}
-                        pageSizeOptions={[5, 10]}
-                      
+                        pageSizeOptions={[5, 10]}                    
                     />
                 </div>
             ) : <CircularProgress />}
